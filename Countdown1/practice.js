@@ -177,3 +177,19 @@ function inWords (num) {
     str += (n[5] != 0) ? ((str != '') ? '' : '') + (a[Number(n[5])] || b[n[5][0]] + '-' + a[n[5][1]]) : '';
     return str;
 }
+
+every_number_eventually_equals_4 = (number) =>{
+  let changed_array = []
+  if(changed_array[(changed_array.length)] === "4"){
+    console.log(changed_array)
+    return changed_array
+  } 
+  if(inWords(number) === "4"){
+    changed_array.pop("4")
+    every_number_eventually_equals_(4)
+  } else {
+    changed_array.pop(inWords(number))
+    every_number_eventually_equals_4(parseInt(inWords(number)))
+  }
+
+}
